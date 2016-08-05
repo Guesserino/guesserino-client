@@ -1,5 +1,121 @@
+h1 {
+  font-size: 2em;
+  font-family: 'Roboto Condensed';
+  margin: 8px 0;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.4em;
+  margin: 8px 0;
+}
+
+a {
+  font-weight: bold;
+  color: #549eff;
+  text-decoration: underline;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  background-color: #f4f8fb;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.header {
+  padding: 20px;
+  position: relative;
+  display: inline-block;
+  font-size: 3em;
+  line-height: 1.2em;
+  font-family: 'Roboto Condensed'
+}
+
+.header:before {
+  font-weight: 300;
+  width: 100px;
+  height: .1em;
+  background-color: rgba(40, 53, 147, 1);
+  content: "";
+  left: 0%;
+  bottom: -10px;
+  position: absolute;
+  z-index: -1;
+}
+
+.options-list {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  max-width: 500px;
+  margin: 0 auto;
+  margin: 20px;
+}
+
+.options-list__option:not(:last-child) {
+  border-bottom: 1px #E0E0E0 solid;
+  align-items: top;
+}
+
+.options-list__option {
+  padding: 12px;
+  cursor: pointer;
+}
+
+.options-list__option--selected {
+}
+
+.options-list__option:hover {
+  background-color: #FAFAFA;
+}
+
+.options-list__option-text--selected {
+  font-weight: bold;
+}
+.flex {
+  display: flex;
+}
+
+.options-list__voters {
+  align-items: center;
+}
+
+.voters-list {
+  padding: 5px 0;
+  list-style: circle;
+}
+
+.voters-list__voter {
+  display: block;
+  padding-left: 30px;
+}
+
+.voter {
+  padding-right: 5px;
+}
+
+.voter__img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  width:100%;
+  background:#999;
+}
+
+.welcome-screen {
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.welcome-screen form * {
+  width: 100%;
 }
