@@ -13,6 +13,7 @@ const SongOptionsList = React.createClass({
       {this.props.options.map(option =>
         <SongOptionsListItem
           option={option}
+          correct={this.props.correctOption === option.title}
           selected={this.props.selectedOption === option.title}
           showVoters={this.props.selectedOption !== ''|| this.props.secondsRemaining < 1}
           onclick={title => {
@@ -32,7 +33,7 @@ const Voters = ({
       <ul className='voters-list'>
         {voters.map(voter => {
           return (
-            <li className='voters-list__voter'>{voter.name}</li>
+            <li className='voters-list__voter'>{voter}</li>
           )
         })}
       </ul>
@@ -45,22 +46,45 @@ const SongOptionsListItem = ({
   option,
   selected,
   showVoters,
-  onclick
+  onclick,
+  correct
 }) => {
-  if (selected) {
-    return (
-      <li className='options-list__option options-list__option--selected'>
-        <h2 className='options-list__option-text options-list__option-text--selected'>{option.title}</h2>
-        <Voters showVoters={showVoters} voters={option.voters} />
-      </li>
-    );
+  if (correct) {
+    if (selected) {
+      return (
+        <li className='options-list__option options-list__option--selected' style={{
+          backgroundColor: '#D7FFF1'
+        }}>
+          <h2 className='options-list__option-text options-list__option-text--selected'>{option.title}</h2>
+          <Voters showVoters={showVoters} voters={option.voters} />
+        </li>
+      );
+    } else {
+      return (
+        <li className='options-list__option' onClick={() => onclick(option.title)} style={{
+          backgroundColor: '#D7FFF1'
+        }}>
+          <h2 className='options-list__option-text'>{option.title}</h2>
+          <Voters showVoters={showVoters} voters={option.voters} />
+        </li>
+      );
+    }
   } else {
-    return (
-      <li className='options-list__option' onClick={() => onclick(option.title)}>
-        <h2 className='options-list__option-text'>{option.title}</h2>
-        <Voters showVoters={showVoters} voters={option.voters} />
-      </li>
-    );
+    if (selected) {
+      return (
+        <li className='options-list__option options-list__option--selected'>
+          <h2 className='options-list__option-text options-list__option-text--selected'>{option.title}</h2>
+          <Voters showVoters={showVoters} voters={option.voters} />
+        </li>
+      );
+    } else {
+      return (
+        <li className='options-list__option' onClick={() => onclick(option.title)}>
+          <h2 className='options-list__option-text'>{option.title}</h2>
+          <Voters showVoters={showVoters} voters={option.voters} />
+        </li>
+      );
+    }
   }
 };
 

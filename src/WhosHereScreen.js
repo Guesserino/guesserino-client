@@ -11,10 +11,10 @@ const WhosHereScreen= React.createClass({
   componentDidMount () {
     window.global = {}
     window.global.pusher = new Pusher('aba24522a837be3fe663', {
-      authEndpoint: "http://foobar.ngrok.io/pusher/auth",
+      authEndpoint: "https://foobar-server.herokuapp.com/pusher/auth",
       auth: {
         params: {
-          email: 'alex.booker@pusher.com'
+          email: this.props.location.query.me
         }
       }
     })
@@ -45,7 +45,7 @@ const WhosHereScreen= React.createClass({
       console.log('data', data)
       var x = data.options.join(',')
       console.log(x)
-      hashHistory.push(`/guess?options=${x}`)
+      hashHistory.push(`/guess?options=${x}&id=${data.id}&start_time=${data.start_time}&me=${this.props.location.query.me}`)
     })
     window.global.channel.bind('end', () => {
       console.log('end...');
@@ -57,13 +57,13 @@ const WhosHereScreen= React.createClass({
   render () {
     if (Object.keys(this.state.members).length > 0) {
       return (
-        <div>
+        <div className='whos-here-screen'>
           <h1>Who's here</h1>
           <ul>
             {Object.keys(this.state.members.members).map(key => <li>{key}</li>)}
           </ul>
           <div>
-            <p>Waiting for the game to start...</p>
+            <p>We're just waiting for some more peeps to join. The game will automatically start soon. Get ready...</p>
           </div>
         </div>
       )

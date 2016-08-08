@@ -119,3 +119,14 @@ body {
 .welcome-screen form * {
   width: 100%;
 }
+.whos-here-screen {
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+}
+.whos-here-screen ul {
+  list-style: circle;
+  margin-left: 30px;
+}
+.whos-here-screen li {
+}

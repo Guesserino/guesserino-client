@@ -14,8 +14,10 @@ const WelcomeScreen = React.createClass({
     return (
       <div className='welcome-screen'>
         <h1>Welcome to Foobar</h1>
-        <p>Foobar is an Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum., powered by <a href='http://pusher.com'>Pusher</a>.Sign in below to play.</p>
-        <p>Foobar is an Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum., powered by <a href='http://pusher.com'>Pusher</a>.Sign in below to play.</p>
+        <p>Foobar is the modern version of a pub quiz, powered by <a href='http://pusher.com'>Pusher</a>.</p>
+        <p>When the game starts, a song will be played in the background. You'll have 15 seconds to guess the song. After you've voted, you'll see what other people are voting for in realtime.</p>
+        <p>Please make sure you enter your OFFICIAL Pusher email below or the game might blow up 😉</p>
+
         <form onSubmit={e => {
           e.preventDefault();
           hashHistory.push(`/whoshere?me=${this.state.username}`)
